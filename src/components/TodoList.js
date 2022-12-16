@@ -26,7 +26,9 @@ function TodoList() {
   return (
     <div className="Todolist_Container">
       <h1 className="Todolist_Header">⭐️ Todo List</h1>
-      <Checkbox htmlFor="Checkbox_All">{allComplete ? '✔️' : ''}</Checkbox>
+      <div className="Checkbox_Container">
+        <Checkbox htmlFor="Checkbox_All">{allComplete ? '✔️' : ''}</Checkbox>
+      </div>
       <input id="Checkbox_All" type="checkbox" onChange={checkAllComplete} />
       <ul className="Todo_Container">
         {todoList.map((todoObj) => {
@@ -41,7 +43,13 @@ function TodoList() {
           );
         })}
       </ul>
-      <input type="text" onChange={inputNewTodo} onKeyDown={addNewTodo} />
+      <input
+        type="text"
+        placeholder="Todo 추가"
+        className="NewTodo_Input"
+        onChange={inputNewTodo}
+        onKeyDown={addNewTodo}
+      />
     </div>
   );
 }
