@@ -40,11 +40,25 @@ function Todo({ todoObj, todoList, setTodoList }) {
     setIsComplete(() => !isComplete);
   };
 
+  const handleEnterPress = function (e) {
+    if (e.keyCode === 13) {
+      editTodo();
+    }
+  };
+
   return (
     <li>
       <input id={todoObj.id} type="checkbox" onClick={checkComplete} />
       <div className={isComplete ? 'Todo_Content complete' : 'Todo_Content'}>
-        {isEditing ? <input value={newTodo} onChange={changeTodo} /> : todo}
+        {isEditing ? (
+          <input
+            value={newTodo}
+            onChange={changeTodo}
+            onKeyDown={handleEnterPress}
+          />
+        ) : (
+          todo
+        )}
       </div>
       <Button onClick={editTodo}>✏️</Button>
       <Button onClick={deleteTodo}>❌</Button>
