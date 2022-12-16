@@ -32,7 +32,7 @@ function TodoList() {
           );
         })}
       </ul>
-      <input type="text" onChange={inputNewTodo} onKeyUp={addNewTodo} />
+      <input type="text" onChange={inputNewTodo} onKeyDown={addNewTodo} />
     </div>
   );
 }
