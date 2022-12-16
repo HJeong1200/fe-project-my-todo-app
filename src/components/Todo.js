@@ -1,23 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-
-const Button = styled.button`
-  background-color: #ffffff;
-  border: none;
-  cursor: pointer;
-`;
-
-const Checkbox = styled.label`
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 1px solid gray;
-  border-radius: 5px;
-  &:hover {
-    cursor: pointer;
-  }
-`;
+import Button from './styled_components/Button';
+import Checkbox from './styled_components/Checkbox';
 
 function Todo({ todoObj, todoList, setTodoList, allComplete }) {
   const { id, todo } = todoObj;

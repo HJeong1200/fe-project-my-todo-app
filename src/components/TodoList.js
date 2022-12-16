@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Todo from './Todo';
+import Checkbox from './styled_components/Checkbox';
 
 function TodoList() {
   const [todoList, setTodoList] = useState([]);
@@ -25,7 +26,8 @@ function TodoList() {
   return (
     <div className="Todolist_Container">
       <h1 className="Todolist_Header">⭐️ Todo List</h1>
-      <input type="checkbox" onChange={checkAllComplete} />
+      <Checkbox htmlFor="Checkbox_All"></Checkbox>
+      <input id="Checkbox_All" type="checkbox" onChange={checkAllComplete} />
       <ul className="Todo_Container">
         {todoList.map((todoObj) => {
           return (
