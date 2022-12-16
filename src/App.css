@@ -24,5 +24,16 @@ input[type='checkbox'] {
 li {
   display: flex;
   width: 25vw;
+  margin-top: 15px;
   justify-content: space-between;
+}
+
+.Todo_Content {
+  font-size: 1.2rem;
+}
+
+input[type='checkbox']:checked + .Todo_Content {
+  color: rgb(128, 128, 128);
+  font-style: italic;
+  text-decoration: line-through;
 }
