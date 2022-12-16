@@ -26,7 +26,7 @@ function TodoList() {
   return (
     <div className="Todolist_Container">
       <h1 className="Todolist_Header">⭐️ Todo List</h1>
-      <Checkbox htmlFor="Checkbox_All"></Checkbox>
+      <Checkbox htmlFor="Checkbox_All">{allComplete ? '✔️' : ''}</Checkbox>
       <input id="Checkbox_All" type="checkbox" onChange={checkAllComplete} />
       <ul className="Todo_Container">
         {todoList.map((todoObj) => {
