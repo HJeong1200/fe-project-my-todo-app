@@ -22,10 +22,17 @@ function TodoList() {
       <h1 className="Todolist_Header">⭐️ Todo List</h1>
       <ul className="Todo_Container">
         {todoList.map((todoObj) => {
-          return <Todo key={todoObj.id} todo={todoObj.todo} />;
+          return (
+            <Todo
+              key={todoObj.id}
+              todoObj={todoObj}
+              todoList={todoList}
+              setTodoList={setTodoList}
+            />
+          );
         })}
       </ul>
-      <input type="text" onChange={inputNewTodo} onKeyUp={addNewTodo} />
+      <input type="text" onChange={inputNewTodo} onKeyDown={addNewTodo} />
     </div>
   );
 }
