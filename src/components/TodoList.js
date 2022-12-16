@@ -4,6 +4,7 @@ import Todo from './Todo';
 function TodoList() {
   const [todoList, setTodoList] = useState([]);
   const [newTodo, setNewTodo] = useState('');
+  const [allComplete, setAllComplete] = useState(false);
 
   const inputNewTodo = function (e) {
     const text = e.target.value;
@@ -17,9 +18,14 @@ function TodoList() {
     }
   };
 
+  const checkAllComplete = function () {
+    setAllComplete(() => !allComplete);
+  };
+
   return (
     <div className="Todolist_Container">
       <h1 className="Todolist_Header">⭐️ Todo List</h1>
+      <input type="checkbox" onChange={checkAllComplete} />
       <ul className="Todo_Container">
         {todoList.map((todoObj) => {
           return (
@@ -28,6 +34,7 @@ function TodoList() {
               todoObj={todoObj}
               todoList={todoList}
               setTodoList={setTodoList}
+              allComplete={allComplete}
             />
           );
         })}
