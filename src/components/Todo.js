@@ -1,5 +1,12 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import styled from 'styled-components';
+
+const Button = styled.button`
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+`;
 
 function Todo({ todoObj, todoList, setTodoList }) {
   const { id, todo } = todoObj;
@@ -15,7 +22,6 @@ function Todo({ todoObj, todoList, setTodoList }) {
     setIsEditing(() => !isEditing);
 
     if (isEditing) {
-      console.log(newTodo);
       setTodoList(
         todoList.map((todoObj) => {
           if (todoObj.id === id) return { ...todoObj, todo: newTodo };
@@ -40,8 +46,8 @@ function Todo({ todoObj, todoList, setTodoList }) {
       <div className={isComplete ? 'Todo_Content complete' : 'Todo_Content'}>
         {isEditing ? <input value={newTodo} onChange={changeTodo} /> : todo}
       </div>
-      <button onClick={editTodo}>E</button>
-      <button onClick={deleteTodo}>X</button>
+      <Button onClick={editTodo}>✏️</Button>
+      <Button onClick={deleteTodo}>❌</Button>
     </li>
   );
 }
