@@ -1,0 +1,28 @@
+.App {
+  display: flex;
+  margin-top: 50px;
+}
+
+.margin {
+  width: 30vw;
+}
+
+.Todolist_Container {
+  width: 40vw;
+  min-height: 500px;
+  border: 2px solid #f8d655;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+li {
+  display: flex;
+  width: 25vw;
+  justify-content: space-between;
+}
