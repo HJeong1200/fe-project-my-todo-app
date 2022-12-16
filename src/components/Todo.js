@@ -8,6 +8,17 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+const Checkbox = styled.label`
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 function Todo({ todoObj, todoList, setTodoList, allComplete }) {
   const { id, todo } = todoObj;
   const [isEditing, setIsEditing] = useState(false);
@@ -56,6 +67,7 @@ function Todo({ todoObj, todoList, setTodoList, allComplete }) {
 
   return (
     <li>
+      <Checkbox htmlFor={todoObj.id}>{isComplete ? '✔️' : ''}</Checkbox>
       <input id={todoObj.id} type="checkbox" onClick={checkComplete} />
       <div className={isComplete ? 'Todo_Content complete' : 'Todo_Content'}>
         {isEditing ? (
