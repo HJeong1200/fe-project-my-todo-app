@@ -80,8 +80,10 @@ function Todo({ todoObj, todoList, setTodoList, allComplete }) {
           todo
         )}
       </div>
-      <Button onClick={editTodo}>✏️</Button>
-      <Button onClick={deleteTodo}>❌</Button>
+      <div className="Todo_Buttons">
+        <Button onClick={editTodo}>✏️</Button>
+        <Button onClick={deleteTodo}>❌</Button>
+      </div>
     </li>
   );
 }
