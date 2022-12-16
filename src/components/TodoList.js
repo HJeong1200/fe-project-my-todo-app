@@ -12,7 +12,7 @@ function TodoList() {
 
   const addNewTodo = function (e) {
     if (e.keyCode === 13) {
-      setTodoList([...todoList, newTodo]);
+      setTodoList([...todoList, { id: Date.now(), todo: newTodo }]);
       e.target.value = '';
     }
   };
@@ -21,8 +21,8 @@ function TodoList() {
     <div className="Todolist_Container">
       <h1 className="Todolist_Header">⭐️ Todo List</h1>
       <ul className="Todo_Container">
-        {todoList.map((todo, idx) => {
-          return <Todo key={idx} todo={todo} />;
+        {todoList.map((todoObj) => {
+          return <Todo key={todoObj.id} todo={todoObj.todo} />;
         })}
       </ul>
       <input type="text" onChange={inputNewTodo} onKeyUp={addNewTodo} />
