@@ -11,7 +11,10 @@ function TodoList() {
   };
 
   const addNewTodo = function (e) {
-    if (e.keyCode === 13) setTodoList([...todoList, newTodo]);
+    if (e.keyCode === 13) {
+      setTodoList([...todoList, newTodo]);
+      e.target.value = '';
+    }
   };
 
   return (
