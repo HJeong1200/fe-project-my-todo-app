@@ -5,6 +5,7 @@ function Todo({ todoObj, todoList, setTodoList }) {
   const { id, todo } = todoObj;
   const [isEditing, setIsEditing] = useState(false);
   const [newTodo, setNewTodo] = useState(todo);
+  const [isComplete, setIsComplete] = useState(false);
 
   const deleteTodo = function () {
     setTodoList(todoList.filter((todoObj) => todoObj.id !== id));
@@ -29,9 +30,14 @@ function Todo({ todoObj, todoList, setTodoList }) {
     setNewTodo(text);
   };
 
+  const checkComplete = function () {
+    setIsComplete(() => !isComplete);
+  };
+
   return (
     <li>
-      <div className="Todo_Content">
+      <input id={todoObj.id} type="checkbox" onClick={checkComplete} />
+      <div className={isComplete ? 'Todo_Content complete' : 'Todo_Content'}>
         {isEditing ? <input value={newTodo} onChange={changeTodo} /> : todo}
       </div>
       <button onClick={editTodo}>E</button>
